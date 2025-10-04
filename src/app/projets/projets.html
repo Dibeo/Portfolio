@@ -1,2 +1,61 @@
-<section><p>projets works!</p></section>
+<section>
+  <div class="carousel-container" *ngIf="!isLoading; else loading">
+    <div class="carousel">
+      <div class="carousel-content">
+        <div class="project" *ngFor="let project of projects">
+          <div class="project-left">
+            <a [href]="project.html_url" target="_blank">
+              <h3>{{ project.name }}</h3>
+            </a>
+            <p>{{ project.description || 'Aucune description' }}</p>
+            <small>{{ project.language }} • ★ {{ project.stargazers_count }}</small>
 
+            <div class="tags" *ngIf="project.topics?.length">
+              <span class="tag" *ngFor="let tag of project.topics">{{ tag }}</span>
+            </div>
+
+            <!-- ✅ Lien de démo ou site -->
+            <div class="homepage" *ngIf="project.homepage">
+              <a [href]="project.homepage" target="_blank" rel="noopener"> 🔗 Voir le site </a>
+            </div>
+          </div>
+
+          <div class="project-right" *ngIf="project.image">
+            <img [src]="project.image" [alt]="project.name" />
+          </div>
+        </div>
+
+        <!-- duplication pour effet infini -->
+        <div class="project" *ngFor="let project of projects">
+          <div class="project-left">
+            <a [href]="project.html_url" target="_blank">
+              <h3>{{ project.name }}</h3>
+            </a>
+            <p>{{ project.description || 'Aucune description' }}</p>
+            <small>{{ project.language }} • ★ {{ project.stargazers_count }}</small>
+
+            <div class="tags" *ngIf="project.topics?.length">
+              <span class="tag" *ngFor="let tag of project.topics">{{ tag }}</span>
+            </div>
+
+            <div class="languages" *ngIf="project.languages?.length">
+              <span class="language" *ngFor="let lang of project.languages">{{ lang }}</span>
+            </div>
+
+            <div class="homepage" *ngIf="project.homepage">
+              <a [href]="project.homepage" target="_blank" rel="noopener"> 🔗 Voir le site </a>
+            </div>
+          </div>
+
+          <div class="project-right" *ngIf="project.image">
+            <img [src]="project.image" [alt]="project.name" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <div class="loading">Chargement des projets GitHub...</div>
+  </ng-template>
+</section>
