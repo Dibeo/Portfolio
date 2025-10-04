@@ -10,12 +10,11 @@ import { Bio } from '../bio/bio';
 import { Projets } from '../projets/projets';
 import { Experiences } from '../experiences/experiences';
 import { Contact } from '../contact/contact';
-import { ParallaxStandaloneDirective } from '@yoozly/ngx-parallax';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [Bio, Projets, Experiences, Contact, ParallaxStandaloneDirective],
+  imports: [Bio, Projets, Experiences, Contact],
   templateUrl: './home.html',
   styleUrls: ['./home.css'],
 })
