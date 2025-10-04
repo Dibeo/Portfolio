@@ -1,0 +1,27 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+/* wrapper cache le scroll natif */
+.viewport {
+  overflow: hidden;
+  position: relative;
+}
+
+/* conteneur de toutes les sections empilées verticalement */
+.scroll-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* la transition gère l'animation quand on change le transform en TS */
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* chaque panel = 100vh */
+.panel {
+  flex: 0 0 100vh; /* fixe la hauteur pour chaque section */
+  width: 100%;
+  display: block;
+}

@@ -1,0 +1,19 @@
+section {
+  min-height: 100vh;
+  display: flex;
+  padding-top: 15%;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 100px;
+}
+
+canvas {
+  display: block;
+  background: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -100000;
+}

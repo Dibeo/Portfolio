@@ -1,0 +1,13 @@
+<!-- wrapper intercepte le wheel/touch -->
+<section class="viewport"
+     (wheel)="onWheel($event)"
+     (touchstart)="onTouchStart($event)"
+     (touchend)="onTouchEnd($event)">
+  <div class="scroll-container" #container>
+    <!-- tes composants existants -->
+     <app-bio class="panel" id="Bio"></app-bio>
+    <app-projets class="panel" id="Projects"></app-projets>
+    <app-experiences class="panel"></app-experiences>
+    <app-contact class="panel"></app-contact>
+  </div>
+</section>
